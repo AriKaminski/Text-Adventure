@@ -16,6 +16,10 @@ class Enemy:
             dmg = dmg * 2
         return dmg
 
+    def take_damage(self, dmg):
+        self.hp -= dmg
+        print(self.hp)
+
 
 Goblin = Enemy('Goblin', 10, 2)
 print(Goblin.attack())

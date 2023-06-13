@@ -39,7 +39,7 @@ class Player:
     def level_up(self):
         if self.xp >= 100:
             print('Level up!')
-            self.xp = 0
+            self.xp -= 100
             self.sp += 3
         while self.sp > 0:
             print('Current Stats: STR =', self.str,
@@ -67,3 +67,15 @@ class Player:
             print('Critical Strike!')
             dmg = dmg * 2
         return dmg
+
+    def set_hp(self):
+        hp = self.stam * 5
+        return hp
+
+    def get_hp(self):
+        return hp
+
+    # in progress
+    def take_damage(self, hp, dmg):
+        hp -= dmg
+        return hp
