@@ -15,8 +15,9 @@ Player class checklist / markup
 
 """
 
+
 class Player:
-    def __init__(self,name,str,dex,int,stam,level,xp,sp):
+    def __init__(self, name, str, dex, int, stam, level, xp, sp):
         self.name = name
         self.str = str
         self.dex = dex
@@ -35,22 +36,22 @@ class Player:
         print('EXP = ', self.xp)
         print('Skill points = ', self.xp)
 
-
-
     def level_up(self):
         if self.xp >= 100:
             print('Level up!')
             self.xp = 0
             self.sp += 3
         while self.sp > 0:
-            print('Current Stats: STR =', self.str, 'DEX =', self.dex,  'INT =', self.int)
-            print( 'STM =', self.stam,  'XP=', self.xp,  'Skill points =', self.sp)
+            print('Current Stats: STR =', self.str,
+                  'DEX =', self.dex,  'INT =', self.int)
+            print('STM =', self.stam,  'XP=',
+                  self.xp,  'Skill points =', self.sp)
             sel = input('Spend points, 1 = str, 2 = dex, 3 = int, 4 = stam')
             if sel == '1':
                 self.str += 1
                 self.sp -= 1
             elif sel == '2':
-                self.dex +=1
+                self.dex += 1
                 self.sp -= 1
             elif sel == '3':
                 self.int += 1
@@ -61,9 +62,8 @@ class Player:
 
     def attack(self):
         dmg = round(random.uniform(self.str/2, self.str))
-        crit_chance = round(random.uniform(0,100), 2)
+        crit_chance = round(random.uniform(0, 100), 2)
         if crit_chance < (self.dex / 2):
             print('Critical Strike!')
             dmg = dmg * 2
         return dmg
-
