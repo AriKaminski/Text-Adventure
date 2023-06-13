@@ -3,7 +3,7 @@ import random
 """
 Player class checklist / markup
 
-- Each player starts with 1 str, 1 dex, 1 int, 20 stam, 10 points to allocate themselves
+- Each player starts with 5 str, 5 dex, 5 int, 10 stam
 - Level up gives player 3 skill points to allocate
 - 6 inventory slots (Last)
     - Weapon
@@ -59,17 +59,11 @@ class Player:
                 self.stam += 1
                 self.sp -= 1
 
+    def attack(self):
+        dmg = round(random.uniform(self.str/2, self.str))
+        crit_chance = round(random.uniform(0,100), 2)
+        if crit_chance < (self.dex / 2):
+            print('Critical Strike!')
+            dmg = dmg * 2
+        return dmg
 
-            
-Player1 = Player('Jawn', 1, 1, 1, 20, 1, 0, 0)
-Player1.get_stats()
-Player1.xp = 100
-Player1.level_up()
-Player1.get_stats()
-
-        
-
-
-
-
-    
