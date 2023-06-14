@@ -72,8 +72,8 @@ class Player:
         hp = self.stam * 5
         return hp
 
-    def get_hp(self):
-        return hp
+    # def get_hp(self):
+        # return hp
 
     # in progress
     def take_damage(self, hp, dmg):
