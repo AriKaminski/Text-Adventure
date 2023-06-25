@@ -18,6 +18,7 @@ print("You wake up in a medieval inn, greeted by the warmth of a crackling heart
 print("The innkeeper, intrigued by your arrival, offers you a map that holds the promise of adventure and destiny.")
 print("With courage in your heart, you step into the vibrant world of Medieval Realms, ready to carve your own legend.")
 print("The wind carries whispers of ancient quests and hidden treasures, urging you to take your first step.")
+print()
 
 
 # Town menu to decide where to go in town, possibly multiple towns?
@@ -34,9 +35,13 @@ elif choice == '2':
 elif choice == '3':
     pass
     # Tavern code goes here
+elif choice == '4':
+    pass
+    # Tavern code goes here
+elif choice == '5':
+    ForestMenu()
 
-
-if choice == '9':
+elif choice == '9':
     sys.exit()
 
 

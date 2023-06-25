@@ -14,6 +14,8 @@ def TownMenu():
         4: "Merchant's Guild",
         5: "Elwynn Forest"
     }
+    print('TOWN MENU')
+    print('===========================')
     for location in town_dict:
         print(location, town_dict[location])
 
