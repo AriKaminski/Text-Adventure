@@ -8,6 +8,26 @@ class Enemy:
         self.hp = hp
         self.str = str
 
+    def take_damage(self, dmg):
+        self.hp -= dmg
+
+
+class Goblin(Enemy):
+    def __init__(self, name, hp, str):
+        super().__init__(name, hp, str)
+
+    def attack(self):
+        dmg = round(random.uniform(self.str/2, self.str))
+        return dmg
+
+    # def take_damage(self, dmg):
+        # self.hp -= dmg
+
+
+class Bandit(Enemy):
+    def __init__(self, name, hp, str):
+        super().__init__(name, hp, str)
+
     def attack(self):
         dmg = round(random.uniform(self.str/2, self.str))
         crit_chance = round(random.uniform(0, 100), 2)
@@ -16,10 +36,14 @@ class Enemy:
             dmg = dmg * 2
         return dmg
 
-    def take_damage(self, dmg):
-        self.hp -= dmg
-        print(self.hp)
+
+class Skeleton(Enemy):
+    def __init__(self, name, hp, str):
+        super().__init__(name, hp, str)
 
 
-Goblin = Enemy('Goblin', 10, 2)
-print(Goblin.attack())
+bandit = Bandit('Bandit', 15, 2)
+
+
+goblin = Goblin('Goblin', 10, 2)
+# print(bandit.hp)

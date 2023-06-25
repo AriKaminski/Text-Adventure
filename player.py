@@ -68,6 +68,11 @@ class Player:
             dmg = dmg * 2
         return dmg
 
+    def defend(self, dmg):
+        dmg = dmg / 2
+        dmg = round(dmg)
+        return dmg
+
     def set_hp(self):
         hp = self.stam * 5
         return hp

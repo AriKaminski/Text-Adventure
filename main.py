@@ -11,6 +11,13 @@ def ActionMenu():
     print('2 - Defend')
 
 
+def enemyRandomizer():
+    goblin = Enemy('Goblin', 10, 4)
+    bandit = Enemy('Bandit', 15, 3)
+    enemyList = [goblin, bandit]
+    return random.choice(enemyList)
+
+
 print('Welcome to World of Pycraft')
 # player_name = input(
 #    'Enter your character name or select your character (character save files in progress): ')
@@ -26,7 +33,7 @@ print("What will it be?")
 print()
 start_game = '0'
 while start_game != '1' or '9':
-    start_game = input('Press 1 to start the game, 9 to quit')
+    start_game = input('Press 1 to start the game, 9 to quit: ')
     if start_game == '1':
         print('Lets go!')
         break
@@ -41,8 +48,9 @@ while hp > 0:
     if player.xp >= 100:
         player.level_up()
 
-    print('Your first enemy is a goblin')
-    goblin = Enemy('Goblin', 10, 2)
+    goblin = Goblin('Goblin', 10, 2)
+    print(f'Your first enemy is a goblin with {goblin.hp} max hp')
+
     while goblin.hp > 0:
         ActionMenu()
         action = input('Select an action: ')
@@ -50,10 +58,21 @@ while hp > 0:
             dmg = player.attack()
             print(f"You deal {dmg} damage")
             goblin.take_damage(dmg)
-            print(f"Goblin hp = {goblin.hp}")
+
         elif action == '2':
-            pass
+            dmg = goblin.attack()
+            dmg = player.defend(dmg)
+            hp -= dmg
+            print('You defend!')
+
+        dmg = goblin.attack()
+        hp -= dmg
+
+        print(f'You take {dmg} damage.')
+        print(f"Your hp = {hp}| Goblin hp = {goblin.hp}")
+
         if goblin.hp < 0:
             print('Goblin Killed! You gain 10xp')
             player.xp += 10
+            hp = max_hp
     x = input('Press 1 to continue your journey: ')
