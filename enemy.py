@@ -47,3 +47,13 @@ bandit = Bandit('Bandit', 15, 2)
 
 goblin = Goblin('Goblin', 10, 2)
 # print(bandit.hp)
+
+
+"""
+def easyEnemies():
+    goblin = Enemy('Goblin', 10, 4)
+    bandit = Bandit('Bandit', 15, 3)
+    enemyList = [goblin, bandit]
+    choice = random.choice(enemyList)
+    return choice
+"""

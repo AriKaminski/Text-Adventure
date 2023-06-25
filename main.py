@@ -1,27 +1,16 @@
 # Main gameplay file
 from player import *
 from enemy import *
+from Menus import *
 import sys
-
-
-def ActionMenu():
-    print('Action Menu')
-    print('------------')
-    print('1 - Attack')
-    print('2 - Defend')
-
-
-def enemyRandomizer():
-    goblin = Enemy('Goblin', 10, 4)
-    bandit = Enemy('Bandit', 15, 3)
-    enemyList = [goblin, bandit]
-    return random.choice(enemyList)
 
 
 print('Welcome to World of Pycraft')
 # player_name = input(
 #    'Enter your character name or select your character (character save files in progress): ')
 # print(f"Hello {player_name}!")
+
+# Create player object and set hp to max hp for gameplay
 player = Player('Test', 5, 5, 5, 10, 1, 0, 0)
 max_hp = player.stam * 5
 hp = max_hp
@@ -29,25 +18,34 @@ print("You wake up in a medieval inn, greeted by the warmth of a crackling heart
 print("The innkeeper, intrigued by your arrival, offers you a map that holds the promise of adventure and destiny.")
 print("With courage in your heart, you step into the vibrant world of Medieval Realms, ready to carve your own legend.")
 print("The wind carries whispers of ancient quests and hidden treasures, urging you to take your first step.")
-print("What will it be?")
-print()
-start_game = '0'
-while start_game != '1' or '9':
-    start_game = input('Press 1 to start the game, 9 to quit: ')
-    if start_game == '1':
-        print('Lets go!')
-        break
-    elif start_game == '9':
-        print('See you later!')
-        sys.exit()
-    else:
-        print('Invalid input')
+
+
+# Town menu to decide where to go in town, possibly multiple towns?
+TownMenu()
+
+choice = input("What will it be? 9 to quit: ")
+# Start game loop, I think user could just be prompted with town menu to go
+if choice == '1':
+    pass
+    # Market code goes here
+elif choice == '2':
+    pass
+    # Castle code goes here
+elif choice == '3':
+    pass
+    # Tavern code goes here
+
+
+if choice == '9':
+    sys.exit()
+
 
 while hp > 0:
     # Level player up
     if player.xp >= 100:
         player.level_up()
 
+    # Simple creation of Goblin enemy for battle testing. I think this could be done in a separate file?
     goblin = Goblin('Goblin', 10, 2)
     print(f'Your first enemy is a goblin with {goblin.hp} max hp')
 
