@@ -14,8 +14,20 @@ def TownMenu():
         4: "Merchant's Guild",
         5: "Elwynn Forest"
     }
-    for town in town_dict:
-        print(town, town_dict[town])
+    for location in town_dict:
+        print(location, town_dict[location])
+
+
+def ForestMenu():
+    forest_dict = {
+        1: 'Redstone Cave',
+        2: 'Bandit Circle',
+        3: 'Duskwind Bridge',
+        4: 'Back to town'
+    }
+
+    for location in forest_dict:
+        print(location, forest_dict[location])
 
 
 TownMenu()
